@@ -22,11 +22,9 @@ TARGET_PRODUCT_SHORT := $(subst awaken_,,$(AWAKEN_BUILD_TYPE))
 
 AWAKEN_BUILD_TYPE ?= unofficial
 
-# Only include Updater for official  build
-ifeq ($(filter-out official,$(AWAKEN_BUILD_TYPE)),)
-    PRODUCT_PACKAGES += \
+# include updater
+PRODUCT_PACKAGES += \
         Updater
-endif
 
 # Sign builds if building an official build
 ifeq ($(filter-out official,$(AWAKEN_BUILD_TYPE)),)
